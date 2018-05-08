@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Multi-columns实现瀑布流布局</title>
+		<style type="text/css">
+			body,
+			html {
+			  position: relative;
+			  width: 100%;
+			  height: 100%;
+			  background: #4F000B;
+			  font-family: "PT Mono", monospace;
+			}
+			.masonry {
+			  column-count: 1;/* 设置列数*/
+			  column-gap: 0; /*设置列间距*/
+			  counter-reset: item-counter;
+			}
+			@media screen and (min-width: 400px) {
+			  .masonry {
+			    column-count: 2;
+			  }
+			}
+			@media screen and (min-width: 600px) {
+			  .masonry {
+			    column-count: 3;
+			  }
+			}
+			@media screen and (min-width: 800px) {
+			  .masonry {
+			    column-count: 4;
+			  }
+			}
+			@media screen and (min-width: 1100px) {
+			  .masonry {
+			    column-count: 6;
+			  }
+			}
+			
+			.item {
+			  box-sizing: border-box;
+			  break-inside: avoid; 为了控制文本块分解成单独的列,以免项目列表的内容跨列,破坏布局
+			  padding: 10px;
+			  counter-increment: item-counter;
+			}
+			.item__content {
+			  position: relative;
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: center;
+			  align-items: center;
+			  font-size: 40px;
+			  color: #360007;
+			  background: currentColor;
+			  box-sizing: border-box;
+			  color: #720026;
+			}
+			.item__content:hover {
+			  background: #9b0034;
+			}
+			.item__content:before {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  font-size: 13px;
+			  width: 2em;
+			  height: 2em;
+			  line-height: 2em;
+			  text-align: center;
+			  font-weight: bold;
+			  background-color: #222;
+			  content: counter(item-counter);
+			}
+			.item__content:after {
+			  color: #1c0004;
+			}
+			.item__content--small {
+			  color: #CE4257;
+			}
+			.item__content--small:hover {
+			  background: #d66274;
+			}
+			.item__content--medium {
+			  color: #FFC093;
+			}
+			.item__content--medium:hover {
+			  background: #ffd8bc;
+			}
+			.item__content--large {
+			  color: #FF7F51;
+			}
+			.item__content--large:hover {
+			  background: #ff9d7a;
+			}
+			.img-bg{
+				width: 100%;
+				height: 80%;
+			}
+			.img-bg img{
+				height: 100%;
+				width: 100%;
+			}
+			.item__content p{
+				color: white;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="masonry">
+			<div class="item">
+				<div class="item__content">
+					<div class="img-bg">
+						<img src="img/12.jpeg"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--small">
+					<div class="img-bg">
+						<img src="img/1.png"/>
+					</div>
+					<p>ncbsuyfgsyfgsjdbcxhjgcuysag s速度發貨速有風格的vb驚魂甫定耍的好V</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--medium">
+					<div class="img-bg">
+						<img src="img/10.jpeg"/>
+					</div>
+					<p>ncbsuyfgsyfgsjdbcxhjgcuysag s速度發貨速有風格的vb驚魂甫定耍的好V</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--small">
+					<div class="img-bg">
+						<img src="img/11.jpeg"/>
+					</div>
+					<p>ncbsuyfgsyfgsjdbcxhjgcuysag s速度發貨速有風格的vb驚魂甫定耍的好V</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--medium">
+					<div class="img-bg">
+						<img src="img/2.jpeg"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content">
+					<div class="img-bg">
+						<img src="img/3.jpg"/>
+					</div>
+					<p>basgs你手機都會發生读過後覅U回復收到回復</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--large">
+					<div class="img-bg">
+						<img src="img/4.jpeg"/>
+					</div>
+					<p>没V女生短髮工藝師傅告訴覅拉薩河封建時代復活幣孫不會覅都會在你下面呢</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--medium">
+					<div class="img-bg">
+						<img src="img/4.jpeg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--small">
+					<div class="img-bg">
+						<img src="img/5.jpg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content">
+					<div class="img-bg">
+						<img src="img/6.jpeg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--large">
+					<div class="img-bg">
+						<img src="img/7.jpeg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content">
+					<div class="img-bg">
+						<img src="img/8.jpeg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--small">
+					<div class="img-bg">
+						<img src="img/9.jpeg"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item__content item__content--large">
+					<div class="img-bg">
+						<img src="img/hot2.gif"/>
+					</div>
+					<p>是那哈ui的身份不滿V明白了擦何從啊什麼錯，模擬現場開獎喜歡VV就能形成VU和對方</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
